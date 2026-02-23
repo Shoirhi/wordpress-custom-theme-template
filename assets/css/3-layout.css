@@ -1,0 +1,14 @@
+/* ======================================================
+//  MARK: Sticky Footer Layout
+// ====================================================== */
+
+@layer layout {
+    body {
+        min-block-size: 100svh;
+    }
+
+    footer {
+        position: sticky;
+        inset-block-start: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+@layer components {
+    @scope (.site-header) {
+        :scope {
+            position: sticky;
+            inset-block-start: 0;
+            z-index: 999;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-logo img {
+            display: block;
+        }
+
+        .custom-logo-link {
+            display: block;
+        }
+
+        /* wp_nav_menu が出力する nav > ul */
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    /*
+     * WordPress admin bar 考慮
+     * - > 782px: admin bar = 32px (fixed)
+     * - 601–782px: admin bar = 46px (fixed)
+     * - ≤ 600px: admin bar = absolute（offset 不要）
+     */
+    @media (min-width: 601px) {
+        .admin-bar .site-header {
+            inset-block-start: var(--wp--custom--header--admin-bar-block-size-mobile);
+        }
+    }
+
+    @media (min-width: 783px) {
+        .admin-bar .site-header {
+            inset-block-start: var(--wp--custom--header--admin-bar-block-size);
+        }
+    }
+}
